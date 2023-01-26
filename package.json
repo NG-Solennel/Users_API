@@ -6,7 +6,8 @@
   "scripts": {
     "build": "babel src -d dist",
     "dev": "better-npm-run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate":"npx sequelize-cli db:migrate"
   },
   "betterScripts": {
     "dev": {
