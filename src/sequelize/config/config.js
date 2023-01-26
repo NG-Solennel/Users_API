@@ -1,6 +1,6 @@
 module.exports = {
   development: {
-    url: "postgres://postgres:KING2000@127.0.0.1:5432/UsersDB",
+    url: "postgres://postgres:  @127.0.0.1:5432/UserLocalDB",
     dialect: "postgres",
     // dialectOptions: {
     //   ssl: {
