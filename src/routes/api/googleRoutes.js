@@ -7,15 +7,15 @@ route.get(
   "/googlelogin",
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
-route.get("/signup", (req, res) => {
-  res.json({ message: "Please sign up" });
+route.get("/failed", (req, res) => {
+  res.json({ error: "Error authenticating" });
 });
 route.get("/login", isLogged);
 route.get(
   "/googlelogin/redirect",
   passport.authenticate("google", {
     successRedirect: "/user/login",
-    failureRedirect: "/user/signup",
+    failureRedirect: "/user/failed",
   })
 );
 export default route;
