@@ -46,5 +46,24 @@ const updateValidation = (req, res, next) => {
     next();
   }
 };
+const loginValidation = (req, res, next) => {
+  const { error } = validateLogin(req.body);
+  if (error) {
+    res
+      .status(400)
+      .send(
+        error.details.map((detail) =>
+          detail.message.replace(/[^a-zA-Z0-9 ]/g, "")
+        )
+      );
+  } else {
+    next();
+  }
+};
 
-export { signupValidation, addressValidation, updateValidation };
+export {
+  signupValidation,
+  addressValidation,
+  updateValidation,
+  loginValidation,
+};

@@ -1,30 +1,16 @@
+require("dotenv").config();
+
 module.exports = {
   development: {
-    url: "postgres://postgres:  @127.0.0.1:5432/UserLocalDB",
+    url: process.env.LOCAL_DB_URL,
     dialect: "postgres",
-    // dialectOptions: {
-    //   ssl: {
-    //     rejectUnauthorized: false,
-    //   },
-    // },
   },
   test: {
-    url: "127.0.0.1",
+    url: process.env.TEST_DATABASE_URL,
     dialect: "postgres",
-    dialectOptions: {
-      ssl: {
-        rejectUnauthorized: false,
-      },
-    },
   },
   production: {
-    url: process.env.DB_URL,
+    url: process.env.DATABASE_URL,
     dialect: "postgres",
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
   },
 };

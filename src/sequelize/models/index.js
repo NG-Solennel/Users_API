@@ -1,5 +1,5 @@
 "use strict";
-
+require("dotenv").config();
 // import fs from "fs"
 // import path from "path";
 // import Sequelize from "sequelize";
@@ -17,10 +17,17 @@ const config = require(__dirname + "/../config/config.js")[env];
 
 const db = {};
 // const sequelize = new Sequelize(`${config.url}?sslmode=no-verify`, config);
-const sequelize = new Sequelize("UserLocalDB", "postgres", "  ", {
-  host: "localhost",
-  dialect: "postgres",
-});
+let sequelize;
+if (config.url) {
+  sequelize = new Sequelize(config.url, config);
+} else {
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
+}
 fs.readdirSync(__dirname)
   .filter((file) => {
     return (
