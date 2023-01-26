@@ -8,7 +8,7 @@ route.get(
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 route.get("/signup", (req, res) => {
-  res.json({ message: "Please sign up" });
+  res.json({ error: "Failed google authentication" });
 });
 route.get("/login", isLogged);
 route.get(

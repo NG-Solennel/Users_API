@@ -17,7 +17,7 @@ const config = require(__dirname + "/../config/config.js")[env];
 
 const db = {};
 // const sequelize = new Sequelize(`${config.url}?sslmode=no-verify`, config);
-const sequelize = new Sequelize("UserLocalDB", "postgres", "  ", {
+const sequelize = new Sequelize("UserLocalDB", "postgres", "KING2000", {
   host: "localhost",
   dialect: "postgres",
 });

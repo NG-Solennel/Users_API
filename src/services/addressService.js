@@ -25,7 +25,6 @@ class AddressServices {
   }
 
   static async updateAddress(data) {
-    console.log(data);
     const user = await User.findOne({ where: { email: data.email } });
     if (!user) {
       return false;
